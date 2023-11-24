@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<div class="container mt-5">
+		<h2 class="text-center text-light mb-3">Faites-vous plaisir avec tous nos produits</h2>
+		<div class="d-flex justify-content-center">
+			<div class="align-items-center mb-3 w-25">
+				<select id="categoryFilter" class="form-select">
+					<option class="" value="all">Toutes les catégories</option>
+					{% for category in categories %}
+						<option value="{{ category.id }}">{{ category.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		<div class="row">
+			{% for product in products %}
+				<div class="col-md-4 mb-4" data-category="{{ product.getCat().getId() }}">
+					<div
+						class="card h-100">
+						<!-- Affichage de l'image du produit -->
+						<img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.name }}" class="card-img-top" style="object-fit: contain; height: 200px;">
+						<div class="card-body d-flex flex-column">
+							<h5 class="card-title">{{ product.name }}</h5>
+							<p class="card-text flex-grow-1">{{ product.description }}</p>
+							<p class="card-text">{{ product.price }}</p>
+							<div>
+								<button class="quantity-decrease btn btn-outline-secondary btn-sm">-</button>
+								<input type="number" class="quantity mx-2" value="1" min="1" readonly style="width: 60px;">
+								<button class="quantity-increase btn btn-outline-secondary btn-sm">+</button>
+								<button class="btn btn-primary add-to-cart mt-2" data-id="{{ product.id }}">Ajouter au panier</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+		</div>
+	</div>
+
+{% endblock %}

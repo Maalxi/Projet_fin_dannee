@@ -1,0 +1,53 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-3 bg-dark" id="headerNav">
+	<div class="container-fluid">
+		<a class="navbar-brand d-block d-lg-none" href="/">
+			<img src="images/No-Name_logo.png" height="80"/>
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class=" collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav mx-auto ">
+				<li class="nav-item m-auto">
+					<a class="nav-link mx-2 active" aria-current="page" href="/">Accueil</a>
+				</li>
+				<li class="nav-item m-auto">
+					<a class="nav-link mx-2" href="/about_us">À Propos</a>
+				</li>
+				<li class="nav-item d-none d-lg-block">
+					<a class="nav-link mx-2" href="/">
+						<img class="img_navbar" src="images/No-Name_logo.png" height="80"/>
+					</a>
+				</li>
+				<li class="nav-item m-auto">
+					<a class="nav-link mx-2" href="/contact">Contact</a>
+				</li>
+				<li class="nav-item dropdown m-auto"></li>
+				<li class="nav-item m-auto">
+					<a class="nav-link mx-2 cart-icon cursor_pointer" id="cartIcon">
+						Panier
+						<span id="cartTotalQuantity" class="badge badge-danger">0</span>
+					</a>
+				</li>
+			</ul>
+
+			<!-- Panneau latéral du panier -->
+			<div id="cartSidebar" class="cart-sidebar d-flex flex-column">
+				<div>
+					<a href="#" class="closebtn d-flex justify-content-center align-items-center">&times;</a>
+					<h2 class="text-center text-white">Votre panier</h2>
+					<ul id="cartItems" class="text-white"></ul>
+				</div>
+				<div id="cartTotal" class="text-white text-center">
+					Total du panier :
+					<span id="totalAmount">0</span>
+				</div>
+				{# <div id="cartTotal" class="text-white text-center">Total du panier : <span id="totalAmount">0.00</span> €</div> #}
+				<div class="d-flex justify-content-center mb-3">
+					<a href="/paypal" class="btn btn-primary">Passer à la caisse</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="navbar_margin"></div>
